@@ -2,10 +2,11 @@
 
 public static class DependencyInjections
 {
-    public static void AddDependencyInjection(this WebApplicationBuilder builder, IConfiguration configuration)
+    public static WebApplicationBuilder AddDependencyInjection(this WebApplicationBuilder builder, IConfiguration configuration)
     {
         builder.Services.AddApplication();
-        builder.Services.AddPersistence(builder.Configuration);
+        builder.Services.AddPersistence(configuration);
 
+        return builder;
     }
 }
